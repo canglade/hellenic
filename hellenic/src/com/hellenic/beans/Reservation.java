@@ -1,8 +1,13 @@
 package com.hellenic.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -10,26 +15,31 @@ import javax.persistence.Table;
 public class Reservation {
 
     @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( name = "id" )
-    private int    id;
+    private int       id;
 
     @Column( name = "nom" )
-    private String nom;
+    private String    nom;
 
     @Column( name = "prenom" )
-    private String prenom;
+    private String    prenom;
 
     @Column( name = "email" )
-    private String email;
+    private String    email;
 
     @Column( name = "pays" )
-    private String pays;
+    private String    pays;
 
     @Column( name = "telephone" )
-    private String telephone;
+    private String    telephone;
 
     @Column( name = "date" )
-    private String date;
+    private String    date;
+
+    @OneToOne( cascade = CascadeType.ALL )
+    @PrimaryKeyJoinColumn
+    private Propriete propriete;
 
     Reservation() {
 
@@ -91,4 +101,7 @@ public class Reservation {
         this.date = date;
     }
 
+    public Propriete propriete() {
+        return propriete;
+    }
 }

@@ -22,7 +22,7 @@
       <property name="format_sql">true</property>
 
       <mapping package="hellenic.beans"/>
-      <mapping class="hellenic.Hebitable"/>
+      <mapping class="hellenic.Habitable"/>
       <mapping class="hellenic.Propriete"/>
       <mapping class="hellenic.Reservation"/>
       <mapping class="hellenic.Terre"/>

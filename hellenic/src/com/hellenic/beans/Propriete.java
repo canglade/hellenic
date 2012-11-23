@@ -1,44 +1,60 @@
 package com.hellenic.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
+@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 @Table( name = "Propriete" )
 public class Propriete {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( name = "ref" )
-    private String  ref;
+    private String      ref;
 
     @Column( name = "prix" )
-    private float   prix;
+    private float       prix;
 
     @Column( name = "libelle" )
-    private String  libelle;
+    private String      libelle;
 
     @Column( name = "description" )
-    private String  description;
+    private String      description;
 
     @Column( name = "surface" )
-    private float   surface;
+    private float       surface;
 
     @Column( name = "prixMini" )
-    private float   prixMini;
+    private float       prixMini;
 
     @Column( name = "region" )
-    private String  region;
+    private String      region;
 
     @Column( name = "isVendu" )
-    private boolean isVendu;
+    private boolean     isVendu;
 
     @Column( name = "dateVente" )
-    private String  dateVente;
+    private String      dateVente;
+
+    @OneToOne( cascade = CascadeType.ALL )
+    @PrimaryKeyJoinColumn
+    private Reservation reservation;
+
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, targetEntity = Vendeur.class )
+    @JoinColumn( name = "id" )
+    private Vendeur     vendeur;
 
     // TODO Voire les propriétés !
     // TODO faire FK
@@ -119,4 +135,11 @@ public class Propriete {
         this.dateVente = dateVente;
     }
 
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public Vendeur getVendeur() {
+        return vendeur;
+    }
 }
