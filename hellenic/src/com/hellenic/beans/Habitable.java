@@ -1,9 +1,25 @@
 package com.hellenic.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table( name = "habitable" )
 public class Habitable extends Propriete {
+
+    @Id
+    @Column( name = "ref" )
     private String ref;
+
+    @Column( name = "nbrPieceHabitable" )
     private int    nbrPieceHabitable;
+
+    @Column( name = "etat" )
     private String etat;
+
+    @Column( name = "type" )
     private String type;
 
     // TODO voir proprietés !

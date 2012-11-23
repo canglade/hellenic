@@ -1,14 +1,43 @@
 package com.hellenic.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table( name = "Propriete" )
 public class Propriete {
+
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @Column( name = "ref" )
     private String  ref;
+
+    @Column( name = "prix" )
     private float   prix;
+
+    @Column( name = "libelle" )
     private String  libelle;
+
+    @Column( name = "description" )
     private String  description;
+
+    @Column( name = "surface" )
     private float   surface;
+
+    @Column( name = "prixMini" )
     private float   prixMini;
+
+    @Column( name = "region" )
     private String  region;
+
+    @Column( name = "isVendu" )
     private boolean isVendu;
+
+    @Column( name = "dateVente" )
     private String  dateVente;
 
     // TODO Voire les propriétés !

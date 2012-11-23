@@ -1,7 +1,19 @@
 package com.hellenic.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table( name = "terre" )
 public class Terre extends Propriete {
+
+    @Id
+    @Column( name = "ref" )
     private String  ref;
+
+    @Column( name = "isContructible" )
     private boolean isContructible;
 
     // TODO voir les attribus

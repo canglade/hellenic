@@ -1,12 +1,34 @@
 package com.hellenic.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table( name = "reservation" )
 public class Reservation {
+
+    @Id
+    @Column( name = "id" )
     private int    id;
+
+    @Column( name = "nom" )
     private String nom;
+
+    @Column( name = "prenom" )
     private String prenom;
+
+    @Column( name = "email" )
     private String email;
+
+    @Column( name = "pays" )
     private String pays;
+
+    @Column( name = "telephone" )
     private String telephone;
+
+    @Column( name = "date" )
     private String date;
 
     Reservation() {
