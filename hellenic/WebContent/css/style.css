@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+body{
+	background-color: #5e88d2;
+}
+
+.container{
+	background-color: #ffffff;
+	padding: 10px;
+}
+
+header{
+	background-image: url('/img/imageentete_en.jpg');
+
+}
+
+.bien{
+	width: 200px;
+}
+
+.bien .titre{
+	text-align: center;
+}
+
+#connexion{
+	background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin: 0 auto 20px;
+    max-width: 300px;
+    padding: 19px 29px 29px;
+}
