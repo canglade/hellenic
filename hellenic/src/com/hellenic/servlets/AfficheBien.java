@@ -11,7 +11,6 @@ public class AfficheBien extends HttpServlet {
     public static final String VUE = "/WEB-INF/affiche-bien.jsp";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        // TODO rechercher le bien passer en GET
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 }
