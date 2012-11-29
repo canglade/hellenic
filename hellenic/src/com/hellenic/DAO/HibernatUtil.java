@@ -1,4 +1,4 @@
-package config;
+package com.hellenic.DAO;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
