@@ -29,7 +29,7 @@
 		    	<h2>Réservation</h2>
 		    </div>
 		    <div class="alert alert-success">
-			    <strong>Success!</strong> Opération réusite.
+			    <strong>Success!</strong> Opération réussie.
 		    </div>
 			<table class="table table-striped">
 				<thead>

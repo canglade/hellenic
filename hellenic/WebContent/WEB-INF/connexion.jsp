@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="/connexion" method="post" class="form-horizontal" id="connexion">
+		<form action="/hellenic/connexion" method="post" class="form-horizontal" id="connexion">
 			<legend>Connexion</legend>
 			<div class="control-group">
 				<input type="text" name="login" placeholder="Login" class="" >

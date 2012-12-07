@@ -3,6 +3,7 @@ package com.hellenic.metier;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.hellenic.DAO.DaoException;
 import com.hellenic.DAO.UserDao;
 import com.hellenic.beans.User;
 
@@ -17,7 +18,7 @@ public class Identification {
         this.userDao = userDao;
     }
 
-    public boolean Identification( HttpServletRequest request ) {
+    public boolean identification( HttpServletRequest request ) {
         boolean isIdentifier = false;
 
         // recupération des GET
@@ -28,7 +29,11 @@ public class Identification {
         HttpSession session = request.getSession();
 
         User user = new User();
-        user = userDao.authentification( login, pwd );
+        try {
+            user = userDao.authentification( login, pwd );
+        } catch ( DaoException e ) {
+            System.out.println( "erreur authentification" );
+        }
 
         // sauvegarde en session si l'user existe
         if ( user != null ) {

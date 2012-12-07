@@ -7,17 +7,22 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernatUtil {
 
-    private static final SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
-    static {
+    public void HibernatUtil() {
         try {
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+
         } catch ( Throwable ex ) {
             throw new ExceptionInInitializerError( ex );
         }
     }
 
-    public static Session getSession() throws HibernateException {
+    public Session getSession() throws HibernateException {
         return sessionFactory.openSession();
+    }
+
+    public SessionFactory getSessionF() throws HibernateException {
+        return sessionFactory;
     }
 }

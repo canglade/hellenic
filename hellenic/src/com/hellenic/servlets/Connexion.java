@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.hellenic.DAO.UserDao;
 import com.hellenic.metier.Identification;
@@ -22,7 +22,10 @@ public class Connexion extends HttpServlet {
     public void init() throws ServletException {
         // Récupération d'une instance userDao
         // TODO TYPE SESSION ??????
-        this.userDao = new UserDao( (Session) getServletContext().getAttribute( ATTR_DAO_FACTORY ) );
+
+        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "sessionHibernat" );
+        this.userDao = new UserDao( sf );
+
     }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -30,9 +33,12 @@ public class Connexion extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+        if ( userDao == null ) {
+            System.out.println( "et merde" );
+        }
         Identification form = new Identification( userDao );
 
-        if ( form.Identification( request ) ) {
+        if ( form.identification( request ) ) {
             this.getServletContext().getRequestDispatcher( VUE_ADMIN_DEFAUT ).forward( request, response );
         } else {
             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

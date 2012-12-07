@@ -49,4 +49,7 @@
 		<servlet-name>Contact</servlet-name>
 		<url-pattern>/contact</url-pattern>
 	</servlet-mapping>
+	<listener>
+  		<listener-class>com.hellenic.DAO.InitiatilisationSessionHibernat</listener-class>
+  	</listener>
 </web-app>
