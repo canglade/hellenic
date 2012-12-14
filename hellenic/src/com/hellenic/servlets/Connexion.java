@@ -13,32 +13,34 @@ import com.hellenic.DAO.UserDao;
 import com.hellenic.metier.Identification;
 
 public class Connexion extends HttpServlet {
-    public static final String  ATTR_DAO_FACTORY = "sessionHibernat";
+    public static final String  ATTR_DAO_FACTORY = "sessionF";
     private static final String VUE              = "/WEB-INF/connexion.jsp";
     private static final String VUE_ADMIN_DEFAUT = "/WEB-INF/admin/bienvenu.jsp";
 
     private UserDao             userDao;
 
     public void init() throws ServletException {
-        // Récupération d'une instance userDao
-        // TODO TYPE SESSION ??????
-
-        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "sessionHibernat" );
+        // Récupération de l'objet SessionFactory
+        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "ATTR_DAO_FACTORY" );
+        // intanciation d'un objet DAO
         this.userDao = new UserDao( sf );
-
     }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+        // appel du form
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        if ( userDao == null ) {
-            System.out.println( "et merde" );
-        }
+        // classe metier
         Identification form = new Identification( userDao );
 
-        if ( form.identification( request ) ) {
+        // authentification
+        boolean result = form.identification( request );
+
+        System.out.println( "Message : authentification = " + result );
+        // redirection suivant le resultat
+        if ( result ) {
             this.getServletContext().getRequestDispatcher( VUE_ADMIN_DEFAUT ).forward( request, response );
         } else {
             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

@@ -11,28 +11,31 @@ public class InitiatilisationSessionHibernat implements ServletContextListener {
 
     @Override
     public void contextInitialized( ServletContextEvent event ) {
+        System.out.println( "Message : Listener Initialisation" );
+
         // Récupération du ServletContext lors du chargement de l'application
         ServletContext servletContext = event.getServletContext();
 
-        // TODO CREATION SESSION HIBERNAT ??????????????????
+        // instanciation d'un objet hibernate util
         this.hibernatUtil = new HibernatUtil();
 
-        System.out.println( "mouahahaha" );
-        /* Enregistrement dans un attribut ayant pour portée toute l'application */
         try {
+            // recuperation de la SessionFactory Hibernat
             SessionFactory sf = hibernatUtil.getSessionF();
 
-            servletContext.setAttribute( "sessionHibernat", sf );
-            System.out.println( "attribut sessionHibernat mémo " + sf.toString() );
-        } catch ( Exception ex ) {
-            System.out.println( "ok flroejnrpoé" );
-        }
+            // Enregistrement dans un attribut ayant pour portée toute
+            // l'application
+            servletContext.setAttribute( "sessionF", sf );
 
+            System.out.println( "Message : attribution sessionHibernat " + sf.toString() );
+        } catch ( Exception ex ) {
+            System.out.println( "Erreur : attribution SessionFactory Hibernat" );
+        }
     }
 
     @Override
     public void contextDestroyed( ServletContextEvent event ) {
-
+        System.out.println( "Message : Listener Destruction" );
     }
 
 }
