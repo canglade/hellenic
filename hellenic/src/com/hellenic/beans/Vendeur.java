@@ -13,30 +13,30 @@ public class Vendeur {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column( name = "id" )
-    private int    id;
+    @Column( name = "idproprio" )
+    private String id;
 
-    @Column( name = "nom" )
+    @Column( name = "nomproprio" )
     private String nom;
 
-    @Column( name = "prenom" )
+    @Column( name = "prenomproprio" )
     private String prenom;
 
-    @Column( name = "telephone" )
+    @Column( name = "telproprio" )
     private String telephone;
 
-    @Column( name = "adresse" )
+    @Column( name = "adresseproprio" )
     private String adresse;
 
     Vendeur() {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId( int id ) {
+    public void setId( String id ) {
         this.id = id;
     }
 

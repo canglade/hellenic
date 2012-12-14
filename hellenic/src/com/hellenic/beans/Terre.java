@@ -13,10 +13,10 @@ public class Terre extends Propriete {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column( name = "ref" )
+    @Column( name = "refpropriete" )
     private String  ref;
 
-    @Column( name = "isContructible" )
+    @Column( name = "constructible" )
     private boolean isContructible;
 
     // TODO voir les attribus

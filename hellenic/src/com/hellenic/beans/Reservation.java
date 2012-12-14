@@ -16,25 +16,25 @@ public class Reservation {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column( name = "id" )
-    private int       id;
+    @Column( name = "idreservation" )
+    private String    id;
 
-    @Column( name = "nom" )
+    @Column( name = "nomclient" )
     private String    nom;
 
-    @Column( name = "prenom" )
+    @Column( name = "prenomclient" )
     private String    prenom;
 
-    @Column( name = "email" )
+    @Column( name = "emailclient" )
     private String    email;
 
-    @Column( name = "pays" )
+    @Column( name = "paysclient" )
     private String    pays;
 
-    @Column( name = "telephone" )
+    @Column( name = "telclient" )
     private String    telephone;
 
-    @Column( name = "date" )
+    @Column( name = "datereservation" )
     private String    date;
 
     @OneToOne( cascade = CascadeType.ALL )
@@ -45,11 +45,11 @@ public class Reservation {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId( int id ) {
+    public void setId( String id ) {
         this.id = id;
     }
 

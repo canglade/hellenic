@@ -17,7 +17,8 @@ public class UserDao implements UserDaoInt {
 
     @Override
     public User authentification( String login, String pwd ) throws DaoException {
-        String hql = "FROM com.hellenic.beans.User user WHERE user.login = " + login + "AND user.pwd = " + pwd;
+        String hql = "FROM com.hellenic.beans.User user WHERE user.login = '" + login + "' AND user.pwd = '" + pwd
+                + "'";
         List<User> list = null;
 
         try {

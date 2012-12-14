@@ -8,7 +8,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 public class HibernatUtil {
     private SessionFactory sessionFactory;
 
-    public void HibernatUtil() {
+    public HibernatUtil() {
         try {
             // instanciation d'un objet SessionFactory
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
@@ -26,6 +26,9 @@ public class HibernatUtil {
 
     // retourne la sessionFactory
     public SessionFactory getSessionF() throws HibernateException {
+        if ( sessionFactory == null ) {
+            System.out.println( "Message : sessionFactory error getSession" );
+        }
         return sessionFactory;
     }
 }

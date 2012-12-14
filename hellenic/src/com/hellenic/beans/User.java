@@ -10,11 +10,14 @@ import javax.persistence.Table;
 public class User {
 
     @Id
-    @Column( name = "login" )
+    @Column( name = "loginuser" )
     private String login;
 
-    @Column( name = "pwd" )
+    @Column( name = "mdpuser" )
     private String pwd;
+
+    @Column( name = "roleuser" )
+    private String role;
 
     public User() {
     }
@@ -25,6 +28,14 @@ public class User {
 
     public void setLogin( String login ) {
         this.login = login;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole( String role ) {
+        this.role = role;
     }
 
     public String getPwd() {

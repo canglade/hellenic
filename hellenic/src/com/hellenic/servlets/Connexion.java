@@ -21,9 +21,15 @@ public class Connexion extends HttpServlet {
 
     public void init() throws ServletException {
         // Récupération de l'objet SessionFactory
-        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "ATTR_DAO_FACTORY" );
+        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "sessionF" );
+        if ( sf == null ) {
+            System.out.println( "Erreur : sf error servletCo" );
+        }
         // intanciation d'un objet DAO
         this.userDao = new UserDao( sf );
+
+        System.out.println( "Message : Initialisation servlet connexion" );
+
     }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {

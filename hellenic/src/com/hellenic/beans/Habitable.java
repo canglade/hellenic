@@ -10,16 +10,16 @@ import javax.persistence.Table;
 public class Habitable extends Propriete {
 
     @Id
-    @Column( name = "ref" )
+    @Column( name = "refpropriete" )
     private String ref;
 
-    @Column( name = "nbrPieceHabitable" )
+    @Column( name = "nbchambrehabitable" )
     private int    nbrPieceHabitable;
 
-    @Column( name = "etat" )
+    @Column( name = "etathabitable" )
     private String etat;
 
-    @Column( name = "type" )
+    @Column( name = "typehabitable" )
     private String type;
 
     // TODO voir proprietés !

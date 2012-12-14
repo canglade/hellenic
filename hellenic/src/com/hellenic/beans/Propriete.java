@@ -21,39 +21,40 @@ public class Propriete {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column( name = "ref" )
+    @Column( name = "refpropriete" )
     private String      ref;
 
-    @Column( name = "prix" )
+    @Column( name = "prixpropriete" )
     private float       prix;
 
-    @Column( name = "libelle" )
+    @Column( name = "libpropriete" )
     private String      libelle;
 
-    @Column( name = "description" )
+    @Column( name = "descriptionpropriete" )
     private String      description;
 
-    @Column( name = "surface" )
+    @Column( name = "surfterrainpropriete" )
     private float       surface;
 
-    @Column( name = "prixMini" )
+    @Column( name = "prixminipropriete" )
     private float       prixMini;
 
-    @Column( name = "region" )
+    @Column( name = "regionpropriete" )
     private String      region;
 
-    @Column( name = "isVendu" )
+    @Column( name = "vendupropriete" )
     private boolean     isVendu;
 
-    @Column( name = "dateVente" )
+    @Column( name = "dateventepropriete" )
     private String      dateVente;
 
     @OneToOne( cascade = CascadeType.ALL )
     @PrimaryKeyJoinColumn
+    @JoinColumn( name = "idreservation" )
     private Reservation reservation;
 
     @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, targetEntity = Vendeur.class )
-    @JoinColumn( name = "id" )
+    @JoinColumn( name = "idproprio" )
     private Vendeur     vendeur;
 
     // TODO Voire les propriétés !
