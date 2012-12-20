@@ -14,7 +14,7 @@ public class HibernatUtil {
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
             System.out.println( "Message : Instanciation SessionFactory Hibernate" );
         } catch ( Throwable ex ) {
-            System.out.println( "Erreur : instanciation HibernatUtil / SessionFactory" );
+            System.out.println( "Erreur : Instanciation HibernatUtil / SessionFactory" );
             throw new ExceptionInInitializerError( ex );
         }
     }
@@ -26,9 +26,6 @@ public class HibernatUtil {
 
     // retourne la sessionFactory
     public SessionFactory getSessionF() throws HibernateException {
-        if ( sessionFactory == null ) {
-            System.out.println( "Message : sessionFactory error getSession" );
-        }
         return sessionFactory;
     }
 }

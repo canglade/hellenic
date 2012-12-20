@@ -13,6 +13,7 @@ public class UserDao implements UserDaoInt {
 
     public UserDao( SessionFactory sessionF ) {
         this.sessionF = sessionF;
+        System.out.println( "Message : Instanciation d'un objet UserDao" );
     }
 
     @Override
@@ -20,6 +21,7 @@ public class UserDao implements UserDaoInt {
         String hql = "FROM com.hellenic.beans.User user WHERE user.login = '" + login + "' AND user.pwd = '" + pwd
                 + "'";
         List<User> list = null;
+        System.out.println( "HQL : " + hql );
 
         try {
             // ouverture d'une session hibernate

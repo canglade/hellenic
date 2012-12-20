@@ -17,19 +17,19 @@ public class Connexion extends HttpServlet {
     private static final String VUE              = "/WEB-INF/connexion.jsp";
     private static final String VUE_ADMIN_DEFAUT = "/WEB-INF/admin/bienvenu.jsp";
 
-    private UserDao             userDao;
+    private Identification      identificationM;
 
     public void init() throws ServletException {
         // Récupération de l'objet SessionFactory
         SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "sessionF" );
-        if ( sf == null ) {
-            System.out.println( "Erreur : sf error servletCo" );
-        }
+
         // intanciation d'un objet DAO
-        this.userDao = new UserDao( sf );
+        UserDao userDao = new UserDao( sf );
+
+        // intanciation de la classe metier
+        identificationM = new Identification( userDao );
 
         System.out.println( "Message : Initialisation servlet connexion" );
-
     }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -38,11 +38,8 @@ public class Connexion extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        // classe metier
-        Identification form = new Identification( userDao );
-
         // authentification
-        boolean result = form.identification( request );
+        boolean result = identificationM.identification( request );
 
         System.out.println( "Message : authentification = " + result );
         // redirection suivant le resultat

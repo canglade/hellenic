@@ -15,6 +15,7 @@ public class Identification {
 
     public Identification( UserDao userDao ) {
         this.userDao = userDao;
+        System.out.println( "Message : Instanciation d'un objet Identification (METIER)" );
     }
 
     public boolean identification( HttpServletRequest request ) {
@@ -24,8 +25,8 @@ public class Identification {
         String login = request.getParameter( CHAMP_LOGIN );
         String pwd = request.getParameter( CHAMP_PWD );
 
-        System.out.println( "Message : login = " + login );
-        System.out.println( "Message : pwd = " + pwd );
+        // System.out.println( "Message : login = " + login );
+        // System.out.println( "Message : pwd = " + pwd );
 
         // creation obj session
         HttpSession session = request.getSession();
