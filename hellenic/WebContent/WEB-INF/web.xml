@@ -30,6 +30,10 @@
 		<servlet-class>com.hellenic.servlets.Deconnexion</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Reservation</servlet-name>
+		<servlet-class>com.hellenic.servlets.Reservation</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Contact</servlet-name>
 		<servlet-class>com.hellenic.servlets.Contact</servlet-class>
 	</servlet>
@@ -44,6 +48,10 @@
 	<servlet-mapping>
 		<servlet-name>Deconnexion</servlet-name>
 		<url-pattern>/admin/deconnexion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Reservation</servlet-name>
+		<url-pattern>/admin/reservationsBO</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Contact</servlet-name>

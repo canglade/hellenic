@@ -13,15 +13,15 @@ import com.hellenic.DAO.UserDao;
 import com.hellenic.metier.Identification;
 
 public class Connexion extends HttpServlet {
-    public static final String  ATTR_DAO_FACTORY = "sessionF";
+    private static final String ATTR_DAO_FACTORY = "sessionF";
     private static final String VUE              = "/WEB-INF/connexion.jsp";
-    private static final String VUE_ADMIN_DEFAUT = "/WEB-INF/admin/bienvenu.jsp";
+    private static final String VUE_ADMIN_DEFAUT = "/admin/reservationsBO";
 
     private Identification      identificationM;
 
     public void init() throws ServletException {
         // Récupération de l'objet SessionFactory
-        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "sessionF" );
+        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( ATTR_DAO_FACTORY );
 
         // intanciation d'un objet DAO
         UserDao userDao = new UserDao( sf );
@@ -44,7 +44,7 @@ public class Connexion extends HttpServlet {
         System.out.println( "Message : authentification = " + result );
         // redirection suivant le resultat
         if ( result ) {
-            this.getServletContext().getRequestDispatcher( VUE_ADMIN_DEFAUT ).forward( request, response );
+            response.sendRedirect( request.getContextPath() + VUE_ADMIN_DEFAUT );
         } else {
             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         }

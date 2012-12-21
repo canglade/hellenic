@@ -32,7 +32,7 @@ public class ProprieteDao implements ProprieteDaoInt {
 
     @Override
     public ArrayList<ProprieteBean> linstingPropriete( int nb ) throws DaoException {
-        String hql = "FROM metier.Propriete";
+        String hql = "FROM com.hellenic.beans.ProprieteBean";
         ArrayList<ProprieteBean> result = null;
 
         try {

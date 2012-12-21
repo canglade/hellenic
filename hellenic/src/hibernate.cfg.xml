@@ -21,8 +21,8 @@
       <property name="show_sql">true</property>
       <property name="format_sql">true</property>
 
-      <mapping class="com.hellenic.beans.Propriete"/>
-      <mapping class="com.hellenic.beans.Reservation"/>
+      <mapping class="com.hellenic.beans.ProprieteBean"/>
+      <mapping class="com.hellenic.beans.ReservationBean"/>
       <mapping class="com.hellenic.beans.User"/>
       <mapping class="com.hellenic.beans.Vendeur"/>
 	

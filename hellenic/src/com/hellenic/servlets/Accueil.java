@@ -16,22 +16,25 @@ import com.hellenic.metier.Propriete;
 
 public class Accueil extends HttpServlet {
     public static final String VUE               = "/WEB-INF/accueil.jsp";
-    public static final int    ATTR_NB_PROPRIETE = 5;
+    public static final int    ATTR_NB_PROPRIETE = 8;
     public static final String ATTR_DAO_FACTORY  = "sessionF";
 
     private Propriete          proprieteM;
 
     public void init() throws ServletException {
         // Récupération de l'objet SessionFactory
-        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( "ATTR_DAO_FACTORY" );
+        SessionFactory sf = (SessionFactory) getServletContext().getAttribute( ATTR_DAO_FACTORY );
 
         // intanciation d'un objet DAO
         ProprieteDao prorieteDao = new ProprieteDao( sf );
 
+        if ( sf == null ) {
+            System.out.println( "ERREUR SERVLET" );
+        }
         // intanciation de la classe metier
         proprieteM = new Propriete( prorieteDao );
 
-        System.out.println( "Message : Initialisation servlet connexion" );
+        System.out.println( "Message : Initialisation servlet propriete" );
     }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
