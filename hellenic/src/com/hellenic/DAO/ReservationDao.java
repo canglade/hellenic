@@ -2,7 +2,7 @@ package com.hellenic.DAO;
 
 import org.hibernate.mapping.List;
 
-import com.hellenic.beans.Propriete;
+import com.hellenic.beans.ProprieteBean;
 
 public class ReservationDao implements ReservationDaoInt {
 
@@ -13,7 +13,8 @@ public class ReservationDao implements ReservationDaoInt {
     }
 
     @Override
-    public boolean create( String nom, String prenom, String email, String telephone, String date, Propriete propriete )
+    public boolean create( String nom, String prenom, String email, String telephone, String date,
+            ProprieteBean propriete )
             throws DaoException {
         // TODO faire requette HQL
         return false;

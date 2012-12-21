@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "habitable" )
-public class Habitable extends Propriete {
+public class Habitable extends ProprieteBean {
 
     @Id
     @Column( name = "refpropriete" )

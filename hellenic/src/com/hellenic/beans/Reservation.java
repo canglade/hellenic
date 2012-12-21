@@ -17,29 +17,29 @@ public class Reservation {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( name = "idreservation" )
-    private String    id;
+    private String        id;
 
     @Column( name = "nomclient" )
-    private String    nom;
+    private String        nom;
 
     @Column( name = "prenomclient" )
-    private String    prenom;
+    private String        prenom;
 
     @Column( name = "emailclient" )
-    private String    email;
+    private String        email;
 
     @Column( name = "paysclient" )
-    private String    pays;
+    private String        pays;
 
     @Column( name = "telclient" )
-    private String    telephone;
+    private String        telephone;
 
     @Column( name = "datereservation" )
-    private String    date;
+    private String        date;
 
     @OneToOne( cascade = CascadeType.ALL )
     @PrimaryKeyJoinColumn
-    private Propriete propriete;
+    private ProprieteBean propriete;
 
     Reservation() {
 
@@ -101,7 +101,7 @@ public class Reservation {
         this.date = date;
     }
 
-    public Propriete propriete() {
+    public ProprieteBean propriete() {
         return propriete;
     }
 }
